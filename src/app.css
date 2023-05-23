@@ -1,0 +1,32 @@
+.custom-datepicker .chakra-input{
+    border: 0px solid !important;
+    outline: none;
+    box-shadow: none;
+
+}
+.custom-datepicker .chakra-input:focus{
+    border: 0px solid !important;
+    outline: none;
+    box-shadow: none;
+}
+.chakra-table td, .chakra-table th{
+    border-right: 1px solid #e2e8f0;
+}
+ .chakra-table td .description-data {
+   max-height: 49px;
+    overflow: hidden;
+}
+.chakra-table td .description-data ul{
+    padding: 0 0 0 16px;
+
+}
+.chakra-table td .description-data.show-alldescription-data {
+   max-height: 100%;
+}
+.nodata-found{
+    display: flex;
+    min-height: 250px;
+    place-items: center;
+    justify-content: center;
+}
+
