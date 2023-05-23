@@ -54,7 +54,6 @@ export default function RichTextEditor(props) {
   const { onEditorChange, value, init, ...rest } = props;
   const editorRef = useRef(null);
 
-  0
   return (
     <>
       <Editor
