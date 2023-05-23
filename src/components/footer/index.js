@@ -34,7 +34,7 @@ const Footer = ({paging,fetchMeetings,filtermeeting}) => {
                 </Grid>
                 <Grid p='4 0'>
                     <Flex gap='2'>
-                        <Button isDisabled ={paging == undefined || filtermeeting.length == 0} h='34px' colorScheme='white' color={"#000"} borderRadius='md'
+                        <Button isDisabled ={filtermeeting.length == 0} h='34px' colorScheme='white' color={"#000"} borderRadius='md'
                             borderWidth='1px' onClick={() => onPageChange("prev")}>
                             First
                         </Button>
