@@ -19,6 +19,7 @@ import {
 } from '@chakra-ui/react'
 import { editMeeting } from '../../services';
 import { updateFireBaseData } from '../../firebase';
+import RichTextEditor from './editor';
 
 function EditMeeting(props) {
     const { isOpen, onOpen, editData, fetchMeetings, setLoading } = props
@@ -35,17 +36,29 @@ function EditMeeting(props) {
         })
 
     }, [props])
+
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
+        if (!e["target"]) {
+            setInput((prevState) => {
+                return {
+                    ...prevState,
+                    ["hs_meeting_body"]: e
+                }
 
-        setInput((prevState) => {
-            return {
-                ...prevState,
-                [name]: value
-            }
+            })
+        } else {
+            const { name, value } = e.target;
+            setInput((prevState) => {
+                return {
+                    ...prevState,
+                    [name]: value
+                }
 
-        })
+            })
+        }
+
     }
+
 
     const Submit = () => {
         setLoading(true)
@@ -78,13 +91,35 @@ function EditMeeting(props) {
                             )}
                         </FormControl>
 
-                        <FormControl isInvalid={isError}>
-                            <FormLabel>Next Steps</FormLabel>
-                            <Textarea name="hs_meeting_body" value={input.hs_meeting_body} onChange={handleInputChange} />
-                            {isError && (
-                                <FormErrorMessage> required.</FormErrorMessage>
-                            )}
-                        </FormControl>
+                        <RichTextEditor
+                            value={input.hs_meeting_body}
+                            ClassName="rte-container"
+                            init={{
+                                height: 500,
+                                menubar: false,
+                                plugins: [
+                                    "advlist",
+                                    "anchor",
+                                    "autolink",
+                                    "help",
+                                    "image",
+                                    "link",
+                                    "lists",
+                                    "searchreplace",
+                                    "table",
+                                    "wordcount",
+                                    "autosave",
+                                ],
+                                toolbar:
+                                    "undo redo | blocks | " +
+                                    "bold italic forecolor | alignleft aligncenter " +
+                                    "alignright alignjustify | bullist numlist outdent indent | " +
+                                    "removeformat | help",
+                                content_style:
+                                    "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                            }}
+                            onEditorChange={handleInputChange}
+                        />
                     </ModalBody>
 
                     <ModalFooter>
