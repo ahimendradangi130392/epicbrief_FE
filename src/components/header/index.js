@@ -28,22 +28,22 @@ const Header = ({ selectedDates, setSelectedDates, searchHandleChange, searchVal
                 <Grid p='4 0'  >
                     <Flex gap='2'>
                         <Menu>
-                            <MenuButton textTransform={'capitalize'} h='40px' colorScheme='white' color={"#000"} borderRadius='md'
+                            <MenuButton fontSize={'14px'} textTransform={'capitalize'} h='40px' colorScheme='white' color={"#000"} borderRadius='md'
                                 borderWidth='1px' as={Button} leftIcon={<FilterIcon />}>
                                 {filter ? filter : "Filter"}
                             </MenuButton>
                             <MenuList>
-                                {filterType.map(val => <MenuItem textTransform={'capitalize'} onClick={() => onFilterChangeHandle(val)
+                                {filterType.map(val => <MenuItem fontSize={'14px'} textTransform={'capitalize'} onClick={() => onFilterChangeHandle(val)
                                 }>{val}</MenuItem>)}
                             </MenuList>
                         </Menu>
                         <Menu>
-                            <MenuButton textTransform={'capitalize'} h='40px' colorScheme='white' color={"#000"} borderRadius='md'
+                            <MenuButton fontSize={'14px'} textTransform={'capitalize'} h='40px' colorScheme='white' color={"#000"} borderRadius='md'
                                 borderWidth='1px' as={Button} rightIcon={<ChevronDownIcon color='#9d9a9a' />}>
                                 Actions
                             </MenuButton>
                             <MenuList>
-                                {actionType.map(val => <MenuItem textTransform='capitalize' onClick={() => onActionChangeHandle(val)
+                                {actionType.map(val => <MenuItem fontSize={'14px'} textTransform='capitalize' onClick={() => onActionChangeHandle(val)
                                 }>{val}</MenuItem>)}
                             </MenuList>
                         </Menu>
@@ -54,13 +54,13 @@ const Header = ({ selectedDates, setSelectedDates, searchHandleChange, searchVal
                 <Grid p='4 0'>
                     <Flex gap='2'>
                         <Menu>
-                            <MenuButton textTransform='capitalize' minWidth='140px' h='40px' colorScheme='white' color={"#000"} borderRadius='md'
+                            <MenuButton fontSize={'14px'} textTransform='capitalize' minWidth='140px' h='40px' colorScheme='white' color={"#000"} borderRadius='md'
                                 borderWidth='1px' as={Button} leftIcon={<SortIcon />}>
 
                                 Sort:{sort ? sort : "oldest"}
                             </MenuButton>
                             <MenuList >
-                                {sortType.map(val => <MenuItem textTransform='capitalize' onClick={() => onSortChangeHandle(val)}>{val}</MenuItem>)}
+                                {sortType.map(val => <MenuItem fontSize={'14px'} textTransform='capitalize' onClick={() => onSortChangeHandle(val)}>{val}</MenuItem>)}
 
                             </MenuList>
                         </Menu>
@@ -75,7 +75,7 @@ const Header = ({ selectedDates, setSelectedDates, searchHandleChange, searchVal
                             borderWidth='1px'
                             w='240px'>
                             <CalendarIcon color='#9d9a9a' m='8px 0px 0 8px' />
-                            <RangeDatepicker style={{ padding: "0 0 0 34px" }}
+                            <RangeDatepicker style={{ padding: "0 0 0 34px", fontSize:'14px'}}
                                 selectedDates={selectedDates}
                                 onDateChange={setSelectedDates}
                                 configs={{
