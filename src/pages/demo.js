@@ -41,7 +41,7 @@ function Demo() {
         let minDate = convert(selectedDates[0])
         let maxDate = convert(selectedDates[1])
         if (selectedDates.length == 2) {
-            let filterDate = meetings.filter(date => (convert(date.properties.hs_createdate)) >= minDate && (convert(date.properties.hs_createdate)) <= maxDate)
+            let filterDate = meetings.filter(date => (convert(date.properties.hs_meeting_start_time)) >= minDate && (convert(date.properties.hs_meeting_start_time)) <= maxDate)
             setFilterMeeting(filterDate)
         }
 
@@ -58,14 +58,14 @@ function Demo() {
         setLoading(true)
         getMeetings(page)
             .then(res => {
-
-                setMeetings(res.data.results)
+                let sortTitle = res.data.results.sort((a, b) => b.properties.hs_meeting_start_time.localeCompare(a.properties.hs_meeting_start_time));
+                setSort("recent")
+                setMeetings(sortTitle)
                 if (res?.data?.paging) {
                     setPagging(res?.data?.paging?.next?.after)
 
                 } else setPagging(undefined)
                 setSelectedDates([new Date(new Date().setDate(new Date().getDate() - 2)), new Date()])
-
                 setLoading(false)
 
             })
@@ -174,11 +174,11 @@ function Demo() {
     //sort by oldest value and recent 
     const onSortChangeHandle = (val) => {
         if (val !== 'recent') {
-            let sortTitle = meetings.sort((a, b) => a.properties.hs_createdate.localeCompare(b.properties.hs_createdate));
+            let sortTitle = meetings.sort((a, b) => a.properties.hs_meeting_start_time.localeCompare(b.properties.hs_meeting_start_time));
             setFilterMeeting(sortTitle);
 
         } else {
-            let sortTitle = meetings.sort((a, b) => b.properties.hs_createdate.localeCompare(a.properties.hs_createdate));
+            let sortTitle = meetings.sort((a, b) => b.properties.hs_meeting_start_time.localeCompare(a.properties.hs_meeting_start_time));
             setFilterMeeting(sortTitle);
         }
         setSort(val)
