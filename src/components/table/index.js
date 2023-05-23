@@ -92,7 +92,7 @@ const TableData = ({ onSelectTableRow, selected, selectedAll, onSelectAllTableRo
                                             </Checkbox>
                                         </Td>
                                         <Td color='#01c4ff'>{item?.properties?.hs_meeting_title}</Td>
-                                        <Td>{new Date(item?.properties?.hs_createdate).toLocaleString()}</Td>
+                                        <Td>{new Date(item?.properties?.hs_meeting_start_time).toLocaleString()}</Td>
                                         <Td >{item?.properties?.owner_details?.firstName} {item?.properties?.owner_details?.lastName}</Td>
                                         <Td>
                                             <div className={`${item.id == show && 'show-alldescription-data'} description-data `} dangerouslySetInnerHTML={{ __html: item?.properties?.hs_body_preview_html }}></div>
