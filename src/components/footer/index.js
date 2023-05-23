@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 
-const Footer = ({paging,fetchMeetings,filtermeeting}) => {
+const Footer = ({ paging, fetchMeetings, filtermeeting }) => {
 
     const onPageChange = (page) => {
         if (page == "next") {
@@ -34,11 +34,11 @@ const Footer = ({paging,fetchMeetings,filtermeeting}) => {
                 </Grid>
                 <Grid p='4 0'>
                     <Flex gap='2'>
-                        <Button isDisabled ={filtermeeting.length == 0} h='34px' colorScheme='white' color={"#000"} borderRadius='md'
+                        <Button isDisabled={filtermeeting.length == 0} h='34px' colorScheme='white' color={"#000"} borderRadius='md'
                             borderWidth='1px' onClick={() => onPageChange("prev")}>
                             First
                         </Button>
-                        <Button isDisabled ={paging == undefined || filtermeeting.length == 0} h='34px' colorScheme='white' color={"#000"} borderRadius='md'
+                        <Button isDisabled={paging == undefined || filtermeeting.length == 0} h='34px' colorScheme='white' color={"#000"} borderRadius='md'
                             borderWidth='1px' onClick={() => onPageChange("next")} >
                             Next
                         </Button>
