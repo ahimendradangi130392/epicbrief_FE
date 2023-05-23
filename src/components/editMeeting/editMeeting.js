@@ -77,13 +77,13 @@ function EditMeeting(props) {
     return (
         <>
 
-            <Modal isOpen={isOpen} onClose={onOpen}>
+            <Modal isOpen={isOpen} onClose={onOpen} size={'full'}>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>Edit Meeting</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <FormControl isInvalid={isError}>
+                        <FormControl isInvalid={isError} marginBottom={'15px'}>
                             <FormLabel>Name</FormLabel>
                             <Input name="hs_meeting_title" type='text' value={input.hs_meeting_title} onChange={handleInputChange} />
                             {isError && (
